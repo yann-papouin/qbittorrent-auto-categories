@@ -1,0 +1,26 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Generate categories",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}\\generate_categories.py",
+            "cwd": "${workspaceFolder}",
+            "console": "integratedTerminal",
+            "args": [
+                // "--data-path=C:\\Users\\Yann\\AppData\\Roaming\\qBittorrent",
+                "--base-path=E:\\Séries",
+                // "--base-path=E:\\Films",
+                "--cleanlist-path=${workspaceFolder}\\user_clean_list.py",
+                "--ignorelist-path=${workspaceFolder}\\user_ignore_list.py",
+                "--remove-dir",
+                "--use-subcategories",
+                // "--dry-run",
+            ]
+        }
+    ]
+}
