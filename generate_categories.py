@@ -91,14 +91,17 @@ class Generator():
 
         # Read existing categories from ini/conf file
         storage_path = STORAGE_FILENAME
-        if self.args.data_path and os.path.exists(self.args.data_path):
-            storage_path = os.path.join(self.args.data_path, storage_path)
-        # Replace username if default path
-        self.args.data_path = self.args.data_path.replace(
-            '{$USER}', getpass.getuser()
-        )
+        if self.args.data_path:
+            # Replace username if default path
+            self.args.data_path = self.args.data_path.replace(
+                '{$USER}', getpass.getuser()
+            )
+            if os.path.exists(self.args.data_path):
+                storage_path = os.path.join(self.args.data_path, storage_path)
+
         # Try to load data from given path
         if os.path.exists(self.args.data_path):
+            print('Loading', storage_path)
             settings = QSettings(storage_path, QSettings.IniFormat)
             self.categories = settings.value(CATEGORIES_KEY)
             if self.categories is None:
