@@ -3,6 +3,8 @@ chcp 65001 > nul
 
 call .venv/Scripts/activate.bat
 
+taskkill /IM qbittorrent.exe
+
 python generate_categories.py ^
     --base-path=E:\Animations ^
     --cleanlist-path=user_clean_list.py ^
@@ -38,3 +40,4 @@ python generate_categories.py ^
     --remove-dir ^
     --use-subcategories
 
+start "qBittorrent" "C:\Program Files\qBittorrent\qbittorrent.exe" /WAIT
